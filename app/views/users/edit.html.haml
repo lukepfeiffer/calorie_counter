@@ -1,0 +1,18 @@
+%h1 Edit
+.form
+  = form_for user do |f|
+    %fieldset
+      %dl
+        %dt= f.label :email
+        %dd= f.text_field :email
+
+        %dt= f.label :first_name
+        %dd= f.text_field :first_name
+
+        %dt= f.label :last_name
+        %dd= f.text_field :last_name
+
+        %dt= f.label :age
+        %dd= f.text_field :age
+    %fieldset.actions
+      = f.submit 'Update'

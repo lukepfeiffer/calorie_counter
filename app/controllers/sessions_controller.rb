@@ -8,4 +8,9 @@ class SessionsController < ApplicationController
       redirect_to root_path(message: 'invalid_login'), notice: { "danger" => "Email or password did not match" }
     end
   end
+
+  def destroy
+    sign_out_user
+    redirect_to :root, notice: { "Successful" => "Sign out successful!" }
+  end
 end

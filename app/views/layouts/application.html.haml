@@ -10,4 +10,6 @@
   - if flash.present?
     - flash.each do |message_type, message|
       = content_tag(:div, message.first.second, class: "alert alert-#{message.first.first}")
+  - if current_user.present?
+    = link_to 'Sign out', sign_out_path, method: :delete
 = yield
