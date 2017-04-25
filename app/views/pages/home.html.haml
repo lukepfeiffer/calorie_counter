@@ -1,0 +1,25 @@
+%h1 Home
+
+.form
+  = form_for @user do |f|
+    %fieldset
+      %dl
+        %dt= f.label :email
+        %dd= f.text_field :email
+
+        %dt= f.label :first_name
+        %dd= f.text_field :first_name
+
+        %dt= f.label :last_name
+        %dd= f.text_field :last_name
+
+        %dt= f.label :age
+        %dd= f.text_field :age
+
+        %dt= f.label :password
+        %dd= f.text_field :password
+
+        %dt= f.label :password_confirmation
+        %dd= f.text_field :password_confirmation
+    %fieldset.actions
+      = f.submit 'Sign Up'
