@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :meals
+  resources :foods
 
   post '/sign_in', to: 'sessions#create'
 

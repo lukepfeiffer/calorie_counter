@@ -1,0 +1,19 @@
+%h1= meal.name + " " + meal.date_eaten.to_s
+
+.form
+  = form_for food do |f|
+    %fieldset
+      %dl
+        %dt= f.label :name
+        %dd= f.text_field :name
+
+        %dt= f.label :serving_size
+        %dd= f.text_field :serving_size
+
+        %dt= f.label :calories
+        %dd= f.number_field :calories, min: 0
+
+        %dt= f.label :type
+        %dd= f.select :type, ["Vegetable", "Fruit", "Meat", "Oils", "Nuts", "Dairy", "Sweets", "Drink"]
+    %fieldset.actions
+      = f.submit 'Update'

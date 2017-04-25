@@ -1,0 +1,17 @@
+%h1 Add Meal
+
+.form
+  = form_for meal do |f|
+    %fieldset
+      %dl
+        %dt= f.label :name
+        %dd= f.select :name, ["Breakfast", "Lunch", "Dinner", "Snack"]
+
+        %dt= f.label :date_eaten
+        %dd= f.date_field :date_eaten
+
+        %dt= f.label :time_eaten
+        %dd= f.time_field :time_eaten
+
+    %fieldset.actions
+      = f.submit 'Create meal'
