@@ -1,5 +1,21 @@
-%h1= meal.name + " " + meal.date_eaten.to_s
+.header
+  .title= meal.name
+  .details= Formatter.date(meal.date_eaten) + " at " + Formatter.time(meal.time_eaten)
 
+%table.food_container
+  %thead
+    %tr
+      %th Name
+      %th Type
+      %th Serving
+      %th Calories
+  %tbody
+    = render partial: 'food_row', collection: foods, as: :food
+    %tr
+      %td Total
+      %td
+      %td
+      %td= foods.reduce(0) { |sum, f| sum + f.calories }
 .form
   = form_for food do |f|
     %fieldset

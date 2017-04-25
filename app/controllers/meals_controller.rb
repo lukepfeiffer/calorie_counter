@@ -3,6 +3,9 @@ class MealsController < ApplicationController
   expose :food do
     Food.new
   end
+  expose :foods do
+    Meal.find(params[:id]).foods
+  end
   expose :meals do
     current_user.meals
   end
