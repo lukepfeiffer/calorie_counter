@@ -2,12 +2,14 @@ require 'spec_helper'
 
 RSpec.describe "Users", type: :request do
   context "User Activities" do
+
     let(:user) { Fabricate(:user) }
 
     it "allows user to sign in" do
+      @user = User.create(first_name: "name", last_name: "name", password: "password", email: "new@example.com", age: "20")
       visit "/"
-      fill_in "user_email", with: "email@example.com"
-      fill_in "user_password", with: "password"
+      fill_in "sign_in_email", with: "new@example.com"
+      fill_in "sign_in_password", with: "password"
       click_button "Sign In"
       expect(page.body).to include("Sign in successful!")
     end
@@ -22,6 +24,12 @@ RSpec.describe "Users", type: :request do
       fill_in "user_age", with: "20"
       click_button "Sign Up"
       expect(page.body).to include("Sign up successful!")
+    end
+
+    it "displays error message on invalid credentials" do
+      visit "/"
+      click_button "Sign In"
+      expect(page.body).to include("Email or password did not match")
     end
 
     it "allows user to edit information" do
